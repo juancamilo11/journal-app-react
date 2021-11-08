@@ -4,7 +4,16 @@ import JournalScreen from "../components/pages/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
 
 const AppRouter = () => {
-  return <div>App router</div>;
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/auth" component={AuthRouter} />
+          <Route exact path="/" component={JournalScreen} />
+        </Switch>
+      </div>
+    </Router>
+  );
 };
 
 export default AppRouter;
