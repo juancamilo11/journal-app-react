@@ -1,3 +1,5 @@
-body {
-  background-color: darkgray;
-}
+@import "./base/settings";
+@import "./base/base";
+
+//Components
+@import "./components/auth";
