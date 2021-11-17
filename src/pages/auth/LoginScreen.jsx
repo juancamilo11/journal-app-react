@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const LoginScreen = () => {
   return (
-    <div>
+    <div className="auth__container">
       <h3 className="auth__title">Login</h3>
       <form>
         <input
