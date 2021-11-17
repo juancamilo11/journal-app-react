@@ -23,16 +23,17 @@
 .notes__title-input,
 .notes__textarea {
   border: none;
-
+  background-color: #222;
   &:focus {
     outline: none;
   }
 }
 .notes__title-input {
   color: $dark-gray;
-  font-size: 25px;
   font-weight: 500;
+  font-size: 30px;
   margin-bottom: 10px;
+  color: $primary;
 }
 
 .notes__textarea {
@@ -43,8 +44,10 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
+  color: $light-gray;
 }
 
 .notes__image img {
-  box-shadow: 5px 5px $dark-gray;
+  box-shadow: 5px 5px $light-gray;
+  border-radius: 3px;
 }

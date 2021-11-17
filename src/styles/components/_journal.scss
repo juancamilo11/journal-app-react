@@ -1,9 +1,9 @@
 .journal__main-content {
   display: flex;
+  background-color: #222;
 }
 
 .journal__sidebar {
-  background-color: $dark-gray;
   color: white;
   display: flex;
   flex-direction: column;
