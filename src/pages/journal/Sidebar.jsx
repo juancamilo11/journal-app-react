@@ -11,7 +11,7 @@ const Sidebar = () => {
         </h3>
         <button className="btn">Logout</button>
       </div>
-      <div className="journal__new-entry">
+      <div className="journal__new-entry pointer">
         <i className="far fa-calendar-plus fa-5x"></i>
         <p className="mt-1">New Entry</p>
       </div>
