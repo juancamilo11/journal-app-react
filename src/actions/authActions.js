@@ -1,6 +1,12 @@
 import { types } from "../types/types";
 import { app } from "../firebase/firebaseConfig";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+import { setError } from "./uiActions";
 
 // export const login = (uid, displayName) => {
 //   return {
@@ -17,6 +23,23 @@ export const startLoginEmailAndPassword = (email, password) => {
     setTimeout(() => {
       dispatch(login(123, "Pedro"));
     }, 2000);
+  };
+};
+
+export const startRegisterWithEmailPasswordAndName = (
+  email,
+  password,
+  name
+) => {
+  return (dispatch) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        console.log(user);
+        dispatch(login(user.uid, name));
+      })
+      .catch((err) => {
+        dispatch(setError(err.message));
+      });
   };
 };
 
