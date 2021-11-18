@@ -6,7 +6,7 @@ const Sidebar = () => {
     <aside className="journal__sidebar">
       <div className="journal__sidebar-navbar">
         <h3 className="mt-1 mb-1">
-          <i className="far fa-moon"></i>
+          <i class="fas fa-book"></i>
           <span> Juan Camilo</span>
         </h3>
         <button className="btn">Logout</button>
