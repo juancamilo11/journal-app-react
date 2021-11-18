@@ -27,8 +27,15 @@ export const login = (uid, displayName) => ({
 
 export const startGoogleLogin = () => {
   return (dispatch) => {
-    signInWithPopup(auth, provider).then((userCredential) => {
-      console.log(userCredential);
-    });
+    signInWithPopup(auth, provider)
+      .then(({ user }) => {
+        // console.log(user.displayName);
+        // console.log(user.email);
+        // console.log(user.uid);
+        dispatch(login(user.uid, user.displayName));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 };
