@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "@firebase/auth";
 import { useDispatch } from "react-redux";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 import { login } from "../actions/authActions";
-import LoginScreen from "../pages/auth/LoginScreen";
 import JournalScreen from "../pages/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
 import PrivateRoute from "./PrivateRoute";
@@ -30,7 +24,7 @@ const AppRouter = () => {
       }
       setCheckingAuthState(false);
     });
-  }, [dispatch, checkingAuthState]);
+  }, [dispatch, checkingAuthState, auth]);
 
   if (checkingAuthState) {
     return <h1 className="auth__loading-message">Loading...</h1>;

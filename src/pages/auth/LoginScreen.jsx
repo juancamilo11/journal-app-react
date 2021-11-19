@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
-  login,
   startGoogleLogin,
   startLoginEmailAndPassword,
 } from "../../actions/authActions";
@@ -24,10 +23,12 @@ const LoginScreen = () => {
     //console.log(email, password);
     // dispatch(login(12345, "Camilo"));
     dispatch(startLoginEmailAndPassword(email, password));
+    reset();
   };
 
   const handleGoogleLogin = () => {
     dispatch(startGoogleLogin());
+    reset();
   };
 
   return (

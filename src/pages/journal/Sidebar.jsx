@@ -14,7 +14,7 @@ const Sidebar = () => {
     <aside className="journal__sidebar">
       <div className="journal__sidebar-navbar">
         <h3 className="mt-1 mb-1">
-          <i class="fas fa-book"></i>
+          <i className="fas fa-book"></i>
           <span> Juan Camilo</span>
         </h3>
         <button className="btn" onClick={handleLogout}>

@@ -33,6 +33,7 @@ export const RegisterScreen = () => {
       dispatch(removeError());
       dispatch(startRegisterWithEmailPasswordAndName(email, password, name));
     }
+    reset();
   };
 
   const isFormValid = () => {
