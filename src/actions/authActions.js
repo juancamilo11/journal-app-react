@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { finishLoading, setError, startLoading } from "./uiActions";
 
@@ -24,7 +25,6 @@ export const startLoginEmailAndPassword = (email, password) => {
     dispatch(startLoading());
     signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        console.log(userCredential);
         dispatch(finishLoading());
       })
       .catch((err) => {
@@ -43,7 +43,7 @@ export const startRegisterWithEmailPasswordAndName = (
     dispatch(startLoading());
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
-        console.log(user);
+        updateProfile(user, { displayName: name });
         dispatch(login(user.uid, name));
         dispatch(finishLoading());
       })
