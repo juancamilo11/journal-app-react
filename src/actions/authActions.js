@@ -76,3 +76,15 @@ export const startGoogleLogin = () => {
       });
   };
 };
+
+export const startLogout = () => {
+  return async (dispatch) => {
+    await auth.signOut().then(() => {
+      dispatch(logout());
+    });
+  };
+};
+
+export const logout = () => ({
+  type: types.logout,
+});

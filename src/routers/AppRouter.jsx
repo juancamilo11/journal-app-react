@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "@firebase/auth";
-import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
   BrowserRouter as Router,
@@ -13,6 +13,8 @@ import JournalScreen from "../pages/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
 
 const AppRouter = () => {
+  const [checkingAuthState, setCheckingAuthState] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const dispatch = useDispatch();
   const auth = getAuth();
 
@@ -20,9 +22,17 @@ const AppRouter = () => {
     onAuthStateChanged(auth, (user) => {
       if (user?.uid) {
         dispatch(login(user.uid, user.displayName));
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
       }
+      setCheckingAuthState(false);
     });
-  }, [dispatch]);
+  }, [dispatch, checkingAuthState]);
+
+  if (checkingAuthState) {
+    return <h1 className="auth__loading-message">Loading...</h1>;
+  }
 
   return (
     <Router>
