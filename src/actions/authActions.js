@@ -5,8 +5,9 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
-import { setError } from "./uiActions";
+import { finishLoading, setError, startLoading } from "./uiActions";
 
 // export const login = (uid, displayName) => {
 //   return {
@@ -20,9 +21,16 @@ const provider = new GoogleAuthProvider();
 
 export const startLoginEmailAndPassword = (email, password) => {
   return (dispatch) => {
-    setTimeout(() => {
-      dispatch(login(123, "Pedro"));
-    }, 2000);
+    dispatch(startLoading());
+    signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+        dispatch(finishLoading());
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch(finishLoading());
+      });
   };
 };
 
@@ -32,12 +40,15 @@ export const startRegisterWithEmailPasswordAndName = (
   name
 ) => {
   return (dispatch) => {
+    dispatch(startLoading());
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         console.log(user);
         dispatch(login(user.uid, name));
+        dispatch(finishLoading());
       })
       .catch((err) => {
+        dispatch(finishLoading());
         dispatch(setError(err.message));
       });
   };
@@ -50,14 +61,17 @@ export const login = (uid, displayName) => ({
 
 export const startGoogleLogin = () => {
   return (dispatch) => {
+    dispatch(startLoading());
     signInWithPopup(auth, provider)
       .then(({ user }) => {
         // console.log(user.displayName);
         // console.log(user.email);
         // console.log(user.uid);
         dispatch(login(user.uid, user.displayName));
+        dispatch(finishLoading());
       })
       .catch((err) => {
+        dispatch(finishLoading());
         console.log(err);
       });
   };

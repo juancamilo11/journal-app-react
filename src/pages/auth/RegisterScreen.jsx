@@ -13,7 +13,7 @@ export const RegisterScreen = () => {
 
   //const state = useSelector(state => state.auth); ->Así recibimos sólo el auth state
 
-  const { msgError } = useSelector((state) => state.ui);
+  const { msgError, loading } = useSelector((state) => state.ui);
 
   const [formValues, handleInputChange, reset] = useForm({
     name: "Juan Camilo",
@@ -92,6 +92,7 @@ export const RegisterScreen = () => {
           type="submit"
           className="btn btn-primary btn-block mb-5"
           onClick={handleRegister}
+          disabled={loading}
         >
           Register
         </button>
