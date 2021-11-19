@@ -28,7 +28,6 @@ export const startLoginEmailAndPassword = (email, password) => {
         dispatch(finishLoading());
       })
       .catch((err) => {
-        console.log(err);
         dispatch(finishLoading());
       });
   };

@@ -11,6 +11,8 @@ import { login } from "../actions/authActions";
 import LoginScreen from "../pages/auth/LoginScreen";
 import JournalScreen from "../pages/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 const AppRouter = () => {
   const [checkingAuthState, setCheckingAuthState] = useState(true);
@@ -38,8 +40,17 @@ const AppRouter = () => {
     <Router>
       <div>
         <Switch>
-          <Route path="/auth" component={AuthRouter} />
-          <Route exact path="/" component={JournalScreen} />
+          <PublicRoute
+            isAuthenticated={isLoggedIn}
+            path="/auth"
+            component={AuthRouter}
+          />
+          <PrivateRoute
+            isAuthenticated={isLoggedIn}
+            exact
+            path="/"
+            component={JournalScreen}
+          />
           <Redirect to="/auth/login" />
         </Switch>
       </div>
