@@ -7,6 +7,7 @@ import {
 } from "firebase/firestore";
 import { database } from "../firebase/firebaseConfig";
 import { types } from "../types/types";
+import { uploadFileToCloudinary } from "./cloudinaryHelpers";
 import { loadNotes } from "./notesHelpers";
 
 export const startAddNewNote = () => {
@@ -54,6 +55,16 @@ export const startSaveNote = (note) => {
 
     await updateDoc(noteDocRef, noteToFirestore);
     dispatch(refreshNote(note.id, noteToFirestore));
+  };
+};
+
+export const startUploadingImage = (file) => {
+  return async (dispatch, getState) => {
+    const { active: activedNote } = getState().notes;
+
+    const fileURL = await uploadFileToCloudinary(file);
+
+    console.log(fileURL);
   };
 };
 
