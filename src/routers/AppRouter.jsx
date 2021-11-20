@@ -7,6 +7,8 @@ import JournalScreen from "../pages/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
+import { loadNotes } from "../actions/notesHelpers";
+import { setNotes } from "../actions/notesActions";
 
 const AppRouter = () => {
   const [checkingAuthState, setCheckingAuthState] = useState(true);
@@ -19,6 +21,9 @@ const AppRouter = () => {
       if (user?.uid) {
         dispatch(login(user.uid, user.displayName));
         setIsLoggedIn(true);
+        loadNotes(user.uid).then((notes) => {
+          dispatch(setNotes(notes));
+        });
       } else {
         setIsLoggedIn(false);
       }
