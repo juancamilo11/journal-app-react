@@ -9,6 +9,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { finishLoading, setError, startLoading } from "./uiActions";
+import { notesLogoutCleaning } from "./notesActions";
 
 // export const login = (uid, displayName) => {
 //   return {
@@ -82,6 +83,7 @@ export const startLogout = () => {
   return async (dispatch) => {
     await auth.signOut().then(() => {
       dispatch(logout());
+      dispatch(notesLogoutCleaning());
     });
   };
 };

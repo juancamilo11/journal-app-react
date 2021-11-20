@@ -8,9 +8,11 @@ const JournalEntries = () => {
   console.log(notes);
   return (
     <div className="jorunal__entries">
-      {notes.map((note) => (
-        <JournalEntry key={note.id} {...note} />
-      ))}
+      {notes
+        .sort((note1, note2) => note1.date - note2.date)
+        .map((note) => (
+          <JournalEntry key={note.id} {...note} />
+        ))}
     </div>
   );
 };

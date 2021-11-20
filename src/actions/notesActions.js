@@ -92,6 +92,10 @@ export const refreshNote = (id, note) => ({
   },
 });
 
+export const notesLogoutCleaning = () => ({
+  type: types.notesLogoutCleaning,
+});
+
 export const activeNote = (id, note) => ({
   type: types.notesActive,
   payload: { id, ...note },
