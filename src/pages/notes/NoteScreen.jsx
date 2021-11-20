@@ -46,15 +46,22 @@ const NoteScreen = () => {
         ></textarea>
 
         {activedNote.url && (
-          <div className="notes__image">
+          <a href={activedNote.url} target="_blank" className="notes__image">
             <img
               src={activedNote.url}
               alt={activedNote.title}
               style={{ width: "25%" }}
             />
-          </div>
+          </a>
         )}
       </div>
+      <a
+        href="https://github.com/juancamilo11"
+        className="mr-5 btn btn-link-github"
+        target="_blank"
+      >
+        Made with Love by JuanCamiloC
+      </a>
     </div>
   );
 };

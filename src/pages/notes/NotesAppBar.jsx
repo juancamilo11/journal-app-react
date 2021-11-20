@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { startSaveNote, startUploadingImage } from "../../actions/notesActions";
 
 const NotesAppBar = () => {
+  const [time, setTime] = useState(new Date());
+
   const dispatch = useDispatch();
   const { active } = useSelector((state) => state.notes);
 
@@ -22,9 +24,15 @@ const NotesAppBar = () => {
     }
   };
 
+  useEffect(() => {
+    setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+  }, []);
+
   return (
     <div className="notes__appbar">
-      <span>05 de agosto de 2021</span>
+      <span>{time.toLocaleString()}</span>
       <div>
         <input
           id="fileSelector"
@@ -33,8 +41,8 @@ const NotesAppBar = () => {
           style={{ display: "none" }}
           onChange={handleFileChange}
         />
-        <button className="btn" onClick={handleUploadPicture}>
-          Picture
+        <button className="btn mr-3" onClick={handleUploadPicture}>
+          Upload Picture
         </button>
         <button className="btn" onClick={handleSave}>
           Save

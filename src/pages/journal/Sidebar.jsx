@@ -32,13 +32,16 @@ const Sidebar = () => {
           )}
           <span className="journal__display-name"> {auth.name}</span>
         </h3>
-        <button className="btn" onClick={handleLogout}>
+        <button className="btn buttons__btn-logout" onClick={handleLogout}>
           Logout
         </button>
       </div>
       <div className="journal__new-entry pointer" onClick={handleNewEntry}>
-        <i className="far fa-calendar-plus fa-5x"></i>
-        <p className="mt-1">New Entry</p>
+        <i class="fas fa-plane-departure fa-5x"></i>
+        <p className="mt-3 text-center">
+          New Travel <br />
+          Memory
+        </p>
       </div>
 
       <JournalEntries />
