@@ -30,6 +30,17 @@ const LoginScreen = () => {
 
   return (
     <div className="auth__container">
+      <div className="text-center d-block">
+        <h5>
+          <img
+            src={process.env.PUBLIC_URL + "/assets/login-logo.png"}
+            className="hola"
+            alt="hola"
+          />
+          <p className="bold mt-2 mb-5">Signin to create memories!</p>
+        </h5>
+      </div>
+
       <h3 className="auth__title">Login</h3>
       <form onSubmit={handleSubmit}>
         <input
@@ -57,6 +68,7 @@ const LoginScreen = () => {
           Login
         </button>
         <div className="auth__social-networks">
+          <small className="text-center">or</small>
           <p>Login with social networks</p>
           <div className="google-btn" onClick={handleGoogleLogin}>
             <div className="google-icon-wrapper">
@@ -66,7 +78,7 @@ const LoginScreen = () => {
                 alt="google button"
               />
             </div>
-            <p className="btn-text">
+            <p className="btn-text texttt text-center">
               <b>Sign in with google</b>
             </p>
           </div>

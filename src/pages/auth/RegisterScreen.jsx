@@ -52,6 +52,17 @@ export const RegisterScreen = () => {
 
   return (
     <div className="auth__container auth__register-container">
+      <div className="text-center d-block">
+        <h5>
+          <img
+            src={process.env.PUBLIC_URL + "/assets/register-logo.png"}
+            className="hola"
+            alt="hola"
+          />
+          <p className="bold mt-2 mb-5">Start creating your best memories!</p>
+        </h5>
+      </div>
+
       <h3 className="auth__title">Register</h3>
       {msgError && <div className="auth__alert-error">{msgError}</div>}
       <form onSubmit={handleRegister}>
