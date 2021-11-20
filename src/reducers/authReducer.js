@@ -17,6 +17,7 @@ export const authReducer = (state = {}, action) => {
       return {
         uid: action.payload.uid,
         name: action.payload.displayName,
+        photoURL: action.payload.photoURL,
       };
     case types.logout:
       return {};

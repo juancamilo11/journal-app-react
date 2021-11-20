@@ -12,7 +12,7 @@ const LoginScreen = () => {
   const dispatch = useDispatch();
   const { ui } = useSelector((state) => state);
   const [formValues, handleInputChange, reset] = useForm({
-    email: "jcamilo-cardona@gmail.com",
+    email: "pedro123@gmail.com",
     password: "123456",
   });
 
@@ -20,10 +20,7 @@ const LoginScreen = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //console.log(email, password);
-    // dispatch(login(12345, "Camilo"));
     dispatch(startLoginEmailAndPassword(email, password));
-    reset();
   };
 
   const handleGoogleLogin = () => {

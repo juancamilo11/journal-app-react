@@ -23,11 +23,13 @@ const provider = new GoogleAuthProvider();
 export const startLoginEmailAndPassword = (email, password) => {
   return (dispatch) => {
     dispatch(startLoading());
-    signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(login(user.uid, user.displayName, user.photoURL));
         dispatch(finishLoading());
       })
       .catch((err) => {
+        console.log(err);
         dispatch(finishLoading());
       });
   };
@@ -43,7 +45,7 @@ export const startRegisterWithEmailPasswordAndName = (
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
         updateProfile(user, { displayName: name });
-        dispatch(login(user.uid, name));
+        dispatch(login(user.uid, name, user.photoURL));
         dispatch(finishLoading());
       })
       .catch((err) => {
@@ -53,9 +55,9 @@ export const startRegisterWithEmailPasswordAndName = (
   };
 };
 
-export const login = (uid, displayName) => ({
+export const login = (uid, displayName, photoURL) => ({
   type: types.login,
-  payload: { uid, displayName },
+  payload: { uid, displayName, photoURL },
 });
 
 export const startGoogleLogin = () => {
@@ -66,7 +68,7 @@ export const startGoogleLogin = () => {
         // console.log(user.displayName);
         // console.log(user.email);
         // console.log(user.uid);
-        dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName, user.photoURL));
         dispatch(finishLoading());
       })
       .catch((err) => {
