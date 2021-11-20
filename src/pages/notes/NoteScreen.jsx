@@ -48,8 +48,8 @@ const NoteScreen = () => {
         {activedNote.url && (
           <div className="notes__image">
             <img
-              src="https://fotoarte.com.uy/wp-content/uploads/2019/03/Landscape-fotoarte.jpg"
-              alt="landscape"
+              src={activedNote.url}
+              alt={activedNote.title}
               style={{ width: "25%" }}
             />
           </div>
