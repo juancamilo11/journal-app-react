@@ -64,6 +64,7 @@
 
 .journal__entry-body {
   padding: 5px;
+  background-color: blue;
 }
 .journal__entry-title {
   font-size: 13px;
@@ -95,4 +96,12 @@
 
 .journal__display-name {
   font-size: 1rem;
+}
+
+.journal__date-container {
+  background-color: red;
+  margin-left: auto;
+}
+.journal__entry-description {
+  background-color: red;
 }

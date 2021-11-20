@@ -8,8 +8,7 @@ export const NothingSelected = () => {
         <br />
         Create an entry!
       </p>
-
-      <i className="far fa-star fa-4x mt-5"></i>
+      <i className="far fa-star fa-4x mt-3"></i>
     </div>
   );
 };
