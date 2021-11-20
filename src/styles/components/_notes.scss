@@ -17,34 +17,52 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 20px;
+  padding: 10px;
+}
+
+.notes__country-input {
+  background: red;
 }
 
 .notes__title-input,
 .notes__textarea {
   border: none;
-  background-color: #222;
   &:focus {
     outline: none;
   }
 }
 .notes__title-input {
-  color: $dark-gray;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 20px;
+  width: 100%;
   margin-bottom: 10px;
-  color: $primary;
+  color: $dark-gray;
+  border-radius: 5px;
+  text-indent: 10px;
+}
+
+.notes__input-label {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 0px;
+}
+
+.notes__form-input {
+  padding: 5px;
+  border-radius: 5px;
+  flex-direction: row;
+  align-items: center;
 }
 
 .notes__textarea {
-  color: $dark-gray;
+  width: 100%;
   font-size: 20px;
   flex: 1 1 auto;
   resize: none;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  color: $light-gray;
+  color: $dark-gray;
 }
 
 .notes__image img {
