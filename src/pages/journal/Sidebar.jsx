@@ -1,4 +1,3 @@
-import userEvent from "@testing-library/user-event";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";

@@ -7,8 +7,7 @@ import JournalScreen from "../pages/journal/JournalScreen";
 import AuthRouter from "./AuthRouter";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
-import { loadNotes } from "../actions/notesHelpers";
-import { setNotes, startLoadingNotes } from "../actions/notesActions";
+import { startLoadingNotes } from "../actions/notesActions";
 
 const AppRouter = () => {
   const [checkingAuthState, setCheckingAuthState] = useState(true);

@@ -1,5 +1,5 @@
 import { collection, addDoc } from "firebase/firestore";
-import { app, database } from "../firebase/firebaseConfig";
+import { database } from "../firebase/firebaseConfig";
 import { types } from "../types/types";
 import { loadNotes } from "./notesHelpers";
 
