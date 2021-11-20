@@ -1,5 +1,6 @@
 import { collection, addDoc } from "firebase/firestore";
 import { app, database } from "../firebase/firebaseConfig";
+import { types } from "../types/types";
 
 export const startAddNewNote = () => {
   return async (dispatch, getState) => {
@@ -16,12 +17,15 @@ export const startAddNewNote = () => {
       const docRef = await addDoc(
         collection(database, `${auth.uid}/journal/notes`),
         newNote
-      ).then((result) => {
-        console.log("Informacion guardada");
-      });
-      console.log(docRef);
+      );
+      dispatch(activeNote(docRef.id, newNote));
     } catch (err) {
       console.log("error: " + err);
     }
   };
 };
+
+export const activeNote = (id, note) => ({
+  type: types.notesActive,
+  payload: { id, ...note },
+});
