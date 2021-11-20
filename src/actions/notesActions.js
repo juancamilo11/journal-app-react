@@ -9,6 +9,7 @@ import { database } from "../firebase/firebaseConfig";
 import { types } from "../types/types";
 import { uploadFileToCloudinary } from "./cloudinaryHelpers";
 import { loadNotes } from "./notesHelpers";
+import Swal from "sweetalert2";
 
 export const startAddNewNote = () => {
   return async (dispatch, getState) => {
@@ -62,9 +63,21 @@ export const startUploadingImage = (file) => {
   return async (dispatch, getState) => {
     const { active: activedNote } = getState().notes;
 
-    const fileURL = await uploadFileToCloudinary(file);
+    Swal.fire({
+      title: "Uploading your Image",
+      text: "Please Wait...",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
 
-    console.log(fileURL);
+    const fileURL = await uploadFileToCloudinary(file);
+    activedNote.url = fileURL;
+
+    dispatch(startSaveNote(activedNote));
+
+    Swal.close();
   };
 };
 
