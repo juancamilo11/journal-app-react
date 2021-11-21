@@ -82,6 +82,7 @@ const LoginScreen = () => {
               <b>Sign in with google</b>
             </p>
           </div>
+          pendiente: autenticacion con facebook y github
         </div>
 
         <Link to="/auth/register" className="link">

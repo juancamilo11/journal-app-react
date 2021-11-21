@@ -38,10 +38,7 @@ const Sidebar = () => {
       </div>
       <div className="journal__new-entry pointer" onClick={handleNewEntry}>
         <i class="fas fa-plane-departure fa-5x"></i>
-        <p className="mt-3 text-center">
-          New Travel <br />
-          Memory
-        </p>
+        <p className="mt-3 text-center">New Travel Memory</p>
       </div>
 
       <JournalEntries />

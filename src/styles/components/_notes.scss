@@ -21,12 +21,11 @@
 }
 
 .notes__country-input {
-  background: red;
 }
 
 .notes__title-input,
 .notes__textarea {
-  border: none;
+  border: 1px solid black;
   &:focus {
     outline: none;
   }
@@ -34,10 +33,10 @@
 .notes__title-input {
   font-weight: 500;
   font-size: 20px;
-  width: 100%;
+  width: 90%;
   margin-bottom: 10px;
   color: $dark-gray;
-  border-radius: 5px;
+  border-radius: 3px;
   text-indent: 10px;
 }
 
@@ -49,9 +48,51 @@
 
 .notes__form-input {
   padding: 5px;
-  border-radius: 5px;
+  background-color: unset;
+  display: flex;
+  flex-direction: row;
+  background: unset;
+  border-radius: 3px;
   flex-direction: row;
   align-items: center;
+}
+
+.notes__form-input-main {
+  padding: 5px;
+  background-color: unset;
+  display: flex;
+  flex-direction: row;
+  background: unset;
+  border-radius: 3px;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.notes__form-input-title {
+  display: flex;
+  flex-direction: column;
+  width: 200%;
+  min-width: 500px;
+  // background-color: red;
+  padding: 0px;
+}
+
+.notes__date-input {
+  width: 70%;
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
+.notes__form-input-date {
+  display: flex;
+  align-self: flex-start;
+  min-width: 200px;
+  flex-direction: column;
+  // background-color: blue;
+  width: 100%;
+  padding: 0px;
 }
 
 .notes__textarea {
@@ -61,7 +102,7 @@
   resize: none;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 3px;
   color: $dark-gray;
 }
 

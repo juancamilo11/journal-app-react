@@ -29,21 +29,39 @@ const NoteScreen = () => {
     <div className="notes__main-container">
       <NotesAppBar />
       <div className="notes__content">
-        <div className="notes__form-input">
-          <label htmlFor="title" className="notes__input-label mr-3">
-            <i class="fas fa-comment-medical ml-3 mr-3 mt-1 notes__label-icon"></i>
-            Title:
-          </label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            placeholder="Write the title here"
-            className="notes__title-input"
-            autoComplete="off"
-            onChange={handleInputChange}
-            value={title}
-          />
+        <div className="notes__form-input-main">
+          <div className="notes__form-input-title">
+            <label htmlFor="title" className="notes__input-label mr-3">
+              <i class="fas fa-comment-medical ml-3 mr-3 mt-1 notes__label-icon"></i>
+              Title:
+            </label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Write the title here"
+              className="notes__title-input"
+              autoComplete="off"
+              onChange={handleInputChange}
+              value={title}
+            />
+          </div>
+          <div className="notes__form-input-date">
+            <label htmlFor="title" className="notes__input-label mr-3">
+              <i class="fas fa-calendar-alt ml-3 mr-3 mt-1 notes__label-icon"></i>
+              Date:
+            </label>
+            <input
+              type="date"
+              name="date"
+              id="date"
+              className="notes__date-input"
+              placeholder="Write the title here"
+              autoComplete="off"
+              onChange={handleInputChange}
+              value={title}
+            />
+          </div>
         </div>
 
         <div className="notes__form-input">

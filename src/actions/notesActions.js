@@ -14,12 +14,11 @@ import Swal from "sweetalert2";
 export const startAddNewNote = () => {
   return async (dispatch, getState) => {
     const { auth } = getState();
-    console.log(auth);
 
     const newNote = {
-      title: "titulo",
-      body: "cuerpo",
-      date: new Date().getTime(),
+      title: "",
+      body: "",
+      date: null,
     };
 
     try {
