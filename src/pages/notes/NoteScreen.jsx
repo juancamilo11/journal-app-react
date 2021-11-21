@@ -12,7 +12,7 @@ const NoteScreen = () => {
   const [formValues, handleInputChange, reset] = useForm(activedNote);
   const activeIdRef = useRef(activedNote.id);
 
-  const { title, body } = formValues;
+  const { title, body, price, country } = formValues;
 
   useEffect(() => {
     if (activedNote.id !== activeIdRef.current) {
@@ -56,7 +56,6 @@ const NoteScreen = () => {
               name="date"
               id="date"
               className="notes__date-input"
-              placeholder="Write the title here"
               autoComplete="off"
               onChange={handleInputChange}
               value={title}
@@ -64,17 +63,37 @@ const NoteScreen = () => {
           </div>
         </div>
 
-        <div className="notes__form-input">
-          <label htmlFor="country" className="notes__input-label mr-3">
-            <i class="fas fa-map-marked-alt ml-3 mr-3 mt-1 notes__label-icon"></i>
-            Country:
-          </label>
-          <Select
-            name="country"
-            id="country"
-            className="notes__country-input"
-            options={countriesList}
-          />
+        <div className="notes__form-input-secundary">
+          <div className="notes__form-input">
+            <label htmlFor="country" className="notes__input-label mr-3">
+              <i class="fas fa-map-marked-alt ml-3 mr-3 mt-1 notes__label-icon"></i>
+              Country:
+            </label>
+            <Select
+              value={country}
+              onChange={handleInputChange}
+              name="country"
+              id="country"
+              className="notes__country-input"
+              options={countriesList}
+            />
+          </div>
+
+          <div className="notes__form-input">
+            <label htmlFor="price" className="notes__input-label mr-3">
+              <i class="fas fa-dollar-sign ml-3 mr-3 mt-1 notes__label-icon"></i>
+              Price(USD):
+            </label>
+            <input
+              type="number"
+              name="price"
+              id="price"
+              className="notes__price-input"
+              autoComplete="off"
+              onChange={handleInputChange}
+              value={price}
+            />
+          </div>
         </div>
 
         <label htmlFor="country" className="notes__input-label mr-3 mt-3">

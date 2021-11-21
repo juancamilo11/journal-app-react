@@ -21,11 +21,12 @@
 }
 
 .notes__country-input {
+  width: 85%;
 }
 
 .notes__title-input,
 .notes__textarea {
-  border: 1px solid black;
+  border: 1px solid lightgray;
   &:focus {
     outline: none;
   }
@@ -40,6 +41,23 @@
   text-indent: 10px;
 }
 
+.notes__form-input-secundary {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.notes__price-input {
+  font-weight: 500;
+  font-size: 20px;
+  width: 80%;
+  margin-bottom: 10px;
+  color: $dark-gray;
+  border-radius: 3px;
+  text-indent: 10px;
+  border: 1px solid lightgray;
+}
+
 .notes__input-label {
   font-size: 20px;
   color: #555;
@@ -47,14 +65,11 @@
 }
 
 .notes__form-input {
+  width: 100%;
   padding: 5px;
-  background-color: unset;
   display: flex;
-  flex-direction: row;
-  background: unset;
+  flex-direction: column;
   border-radius: 3px;
-  flex-direction: row;
-  align-items: center;
 }
 
 .notes__form-input-main {
@@ -74,15 +89,14 @@
   flex-direction: column;
   width: 200%;
   min-width: 500px;
-  // background-color: red;
   padding: 0px;
 }
 
 .notes__date-input {
-  width: 70%;
+  width: 90%;
   height: 35px;
   border-radius: 3px;
-  border: 1px solid black;
+  border: 1px solid lightgray;
 }
 
 .notes__form-input-date {
