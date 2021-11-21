@@ -17,8 +17,10 @@ export const startAddNewNote = () => {
 
     const newNote = {
       title: "",
+      date: new Date().getTime(),
+      country: "",
+      price: "",
       body: "",
-      date: null,
     };
 
     try {

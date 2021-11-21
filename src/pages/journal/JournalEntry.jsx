@@ -3,13 +3,13 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import { activeNote } from "../../actions/notesActions";
 
-const JournalEntry = ({ id, title, body, date, url }) => {
+const JournalEntry = ({ id, title, country, price, body, date, url }) => {
   const noteDate = moment(date);
 
   const dispatch = useDispatch();
 
   const handleSelectNote = () => {
-    dispatch(activeNote(id, { title, body, date, url }));
+    dispatch(activeNote(id, { title, country, price, body, date, url }));
   };
 
   return (
@@ -34,18 +34,27 @@ const JournalEntry = ({ id, title, body, date, url }) => {
       )}
 
       <div className="journal__entry-body">
-        <p className="journal__entry-title">
+        <h3 className="journal__entry-title">
           {title.length < 23 ? title : `${title.substring(0, 23) + "..."}`}
-        </p>
-        <p className="jorunal__entry-content">
-          {body.length < 23 ? body : `${body.substring(0, 23) + "..."}`}
+        </h3>
+        <p className="journal__entry-content">{price || "1200 + USD"}</p>
+        <p className="journal__entry-body">
+          {/* {body.length < 23 ? body : `${body.substring(0, 23) + "..."}`} */}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. At deleniti
+          nisi enim consequatur corporis fugiat a perspiciatis expedita aliquid?
+          Asperiores.
         </p>
       </div>
 
       <div className="journal__date-container">
         <div className="journal__entry-date-box">
-          <span>{noteDate.format("dddd")}</span>
-          <h5>{noteDate.format("Do")}</h5>
+          <h6 className="journal__entry-country mt-1">
+            {country || "Colombia"}
+            <hr />
+          </h6>
+          <span>{noteDate.format("Do")}</span>
+          <h6>{noteDate.format("MMMM")}</h6>
+          <h4>{noteDate.format("YYYY")}</h4>
         </div>
       </div>
     </div>

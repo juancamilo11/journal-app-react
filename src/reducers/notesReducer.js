@@ -4,10 +4,12 @@
     notes:[],
     active:null,
     active:{
-        id:3489CEURCU4YYMEUCY
-        title:
-        body:
-        date:2832473456347
+        id:3489CEURCU4YYMEUCY,
+        title:'',
+        date:2832473456347,
+        country:'',
+        price:,
+        body:'',
     }
 }
 
