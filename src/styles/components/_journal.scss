@@ -59,14 +59,27 @@
 
 .journal__entry-picture {
   height: 150px;
-  width: 150px;
+  width: 33%;
+  background-position: center;
   outline: 1px solid black;
 }
 
 .journal__entry-body {
-  padding: 5px;
+  padding-left: 7px;
+  padding-top: 7px;
+  padding-right: 0px;
   max-width: 200px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
+
+.journal__entry-description {
+  margin-right: 0px;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: unset;
+}
+
 .journal__entry-title {
   font-size: 20px;
   font-weight: bold;

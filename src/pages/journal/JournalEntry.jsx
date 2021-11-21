@@ -38,11 +38,11 @@ const JournalEntry = ({ id, title, country, price, body, date, url }) => {
           {title.length < 23 ? title : `${title.substring(0, 23) + "..."}`}
         </h3>
         <p className="journal__entry-content">{price || "1200 + USD"}</p>
-        <p className="journal__entry-body">
+        <p className="journal__entry-description">
           {/* {body.length < 23 ? body : `${body.substring(0, 23) + "..."}`} */}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At deleniti
-          nisi enim consequatur corporis fugiat a perspiciatis expedita aliquid?
-          Asperiores.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis,
+          perspiciatis sed! Perferendis, quas ab quo quod distinctio vero
+          molestias voluptatum.
         </p>
       </div>
 
