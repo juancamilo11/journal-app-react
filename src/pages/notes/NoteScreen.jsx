@@ -5,14 +5,13 @@ import { activeNote } from "../../actions/notesActions";
 import useForm from "../../hooks/useForm";
 import NotesAppBar from "./NotesAppBar";
 import { countriesList } from "../../assets/countriesList";
-import Select from "react-select";
 const NoteScreen = () => {
   const { active: activedNote } = useSelector((state) => state.notes);
   const dispatch = useDispatch();
   const [formValues, handleInputChange, reset] = useForm(activedNote);
   const activeIdRef = useRef(activedNote.id);
 
-  const { title, body, price, country } = formValues;
+  const { title, body, price, country, date } = formValues;
 
   useEffect(() => {
     if (activedNote.id !== activeIdRef.current) {
@@ -58,7 +57,7 @@ const NoteScreen = () => {
               className="notes__date-input"
               autoComplete="off"
               onChange={handleInputChange}
-              value={title}
+              value={date}
             />
           </div>
         </div>
@@ -69,14 +68,18 @@ const NoteScreen = () => {
               <i class="fas fa-map-marked-alt ml-3 mr-3 mt-1 notes__label-icon"></i>
               Country:
             </label>
-            <Select
-              value={country}
-              onChange={handleInputChange}
+            <select
               name="country"
               id="country"
               className="notes__country-input"
-              options={countriesList}
-            />
+              value={country}
+              onChange={handleInputChange}
+            >
+              <option value="co">Colombia</option>
+              <option value="mx">Colombia</option>
+              <option value="ar">Argentina</option>
+              <option value="cl">Chile</option>
+            </select>
           </div>
 
           <div className="notes__form-input">

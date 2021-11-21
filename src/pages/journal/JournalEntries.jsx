@@ -7,7 +7,7 @@ const JournalEntries = () => {
   return (
     <div className="jorunal__entries">
       {notes
-        .sort((note1, note2) => note1.date - note2.date)
+        .sort((note1, note2) => note2.date - note1.date)
         .map((note) => (
           <JournalEntry key={note.id} {...note} />
         ))}

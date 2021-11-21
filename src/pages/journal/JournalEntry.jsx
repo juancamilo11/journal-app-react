@@ -34,24 +34,29 @@ const JournalEntry = ({ id, title, country, price, body, date, url }) => {
       )}
 
       <div className="journal__entry-body">
-        <h3 className="journal__entry-title">
-          {title.length < 23 ? title : `${title.substring(0, 23) + "..."}`}
-        </h3>
-        <p className="journal__entry-content">{price || "1200 + USD"}</p>
-        <p className="journal__entry-description">
-          {/* {body.length < 23 ? body : `${body.substring(0, 23) + "..."}`} */}
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis,
-          perspiciatis sed! Perferendis, quas ab quo quod distinctio vero
-          molestias voluptatum.
-        </p>
+        <h3 className="journal__entry-title">{title}</h3>
+        <p className="journal__entry-content">{price + " USD"}</p>
+        <span className="journal__entry-description">
+          {body.length < 21 ? (
+            <>
+              {body}{" "}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </>
+          ) : (
+            body
+          )}
+        </span>
       </div>
 
       <div className="journal__date-container">
         <div className="journal__entry-date-box">
-          <h6 className="journal__entry-country mt-1">
+          <h5 className="journal__entry-country mt-1">
             {country || "Colombia"}
             <hr />
-          </h6>
+          </h5>
           <span>{noteDate.format("Do")}</span>
           <h6>{noteDate.format("MMMM")}</h6>
           <h4>{noteDate.format("YYYY")}</h4>

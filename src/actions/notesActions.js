@@ -17,7 +17,7 @@ export const startAddNewNote = () => {
 
     const newNote = {
       title: "",
-      date: new Date().getTime(),
+      date: "",
       country: "",
       price: "",
       body: "",
