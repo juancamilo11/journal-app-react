@@ -5,6 +5,7 @@ import { activeNote } from "../../actions/notesActions";
 import useForm from "../../hooks/useForm";
 import NotesAppBar from "./NotesAppBar";
 import { countriesList } from "../../assets/countriesList";
+import { images } from "./images";
 const NoteScreen = () => {
   const { active: activedNote } = useSelector((state) => state.notes);
   const dispatch = useDispatch();
@@ -111,7 +112,7 @@ const NoteScreen = () => {
           value={body}
         ></textarea>
 
-        {activedNote.url && (
+        {/* {activedNote.url && (
           <a href={activedNote.url} target="_blank" className="notes__image">
             <img
               src={activedNote.url}
@@ -119,7 +120,25 @@ const NoteScreen = () => {
               style={{ width: "25%" }}
             />
           </a>
-        )}
+        )} */}
+
+        <div className="notes__img-list-container">
+          {images.map((image) => (
+            <a
+              key={image.url}
+              href={image.url}
+              target="_blank"
+              className="notes__image-link"
+            >
+              <img
+                src={image.url}
+                alt="imagen"
+                className="notes__img-note"
+                style={{ width: "25%" }}
+              />
+            </a>
+          ))}
+        </div>
       </div>
       <a
         href="https://github.com/juancamilo11"

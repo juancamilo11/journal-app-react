@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
 .notes__appbar {
@@ -120,7 +121,22 @@
   color: $dark-gray;
 }
 
-.notes__image img {
+.notes__image-link img {
   box-shadow: 5px 5px $light-gray;
   border-radius: 3px;
+  margin-right: 10px;
+}
+
+.notes__img-list-container {
+  max-width: 500px; //sssssssssssssssssssssssssssssssssss
+  margin-left: 100px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  background-color: red;
+}
+
+.notes__img-note {
+  min-width: 100px;
+  max-width: 250px;
 }
