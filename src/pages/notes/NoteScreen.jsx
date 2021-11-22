@@ -25,6 +25,10 @@ const NoteScreen = () => {
     dispatch(activeNote(formValues.id, { ...formValues }));
   }, [formValues, dispatch]);
 
+  const handleDeleteImage = (url) => {
+    window.alert("eliminando la imagen con url: " + url);
+  };
+
   return (
     <div className="notes__main-container">
       <NotesAppBar />
@@ -124,29 +128,30 @@ const NoteScreen = () => {
 
         <div className="notes__img-list-container">
           {images.map((image) => (
-            <a
-              key={image.url}
-              href={image.url}
-              target="_blank"
-              className="notes__image-link"
-            >
-              <img
-                src={image.url}
-                alt="imagen"
-                className="notes__img-note"
-                style={{ width: "25%" }}
-              />
-            </a>
+            <div className="notes__img-item">
+              <button
+                className="btn btn-primary btn-delete-img"
+                onClick={() => handleDeleteImage(image.url)}
+              >
+                <i class="fas fa-trash-alt"></i>
+              </button>
+              <a
+                key={image.url}
+                href={image.url}
+                target="_blank"
+                className="notes__image-link"
+              >
+                <img
+                  src={image.url}
+                  alt="imagen"
+                  className="notes__img-note"
+                  style={{ width: "25%" }}
+                />
+              </a>
+            </div>
           ))}
         </div>
       </div>
-      <a
-        href="https://github.com/juancamilo11"
-        className="mr-5 btn btn-link-github"
-        target="_blank"
-      >
-        Made with Love by JuanCamiloC
-      </a>
     </div>
   );
 };
